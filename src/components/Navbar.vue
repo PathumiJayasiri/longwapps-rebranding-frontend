@@ -138,8 +138,8 @@ const goTo = (url: string) => {
 }
 
 .custom-header {
-  padding-left: 16px; /* Left padding */
-  padding-right: 16px; /* Right padding */
+  padding-left: 10px; /* Left padding */
+  padding-right: 10px; /* Right padding */
   padding-top: 12px; /* Top padding */
   padding-bottom: 12px;
   max-width: 1200px; /* Optional: keep navbar contained */
