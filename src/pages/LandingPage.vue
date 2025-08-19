@@ -1,10 +1,38 @@
 <template>
-  <q-page padding>
-    <section class="q-pa-xl bg-blue text-white" style="min-height: 100vh">
-      <h1>Landing Page Works!</h1>
-      <p>This content is inside QPage and now displays correctly.</p>
-    </section>
-  </q-page>
+  <div class="landing-page q-pa-none">
+    <LaunchAndScaling />
+    <Features />
+    <OurSuccess />
+    <MeetOurTeam />
+    <InnovativeTeam />
+    <GetStarted />
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+import LaunchAndScaling from 'components/landing/LaunchAndScaling.vue';
+import Features from 'components/landing/Features.vue';
+import OurSuccess from 'components/landing/OurSuccess.vue';
+import MeetOurTeam from 'components/landing/MeetOurTeam.vue';
+import InnovativeTeam from 'components/landing/InnovativeTeam.vue';
+import GetStarted from 'components/landing/GetStarted.vue';
+
+export default defineComponent({
+  name: 'LandingPage',
+  components: {
+    LaunchAndScaling,
+    Features,
+    OurSuccess,
+    MeetOurTeam,
+    InnovativeTeam,
+    GetStarted,
+  },
+});
+</script>
+
+<style scoped>
+.landing-page {
+  min-height: 100vh; /* make full screen */
+}
+</style>

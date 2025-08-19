@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <q-header class="rounded-borders bg-white text-black shadow-sm q-px-lg q-py-md">
+  <q-header class="bg-white text-black shadow-sm q-mx-md q-my-md rounded-borders custom-header">
     <q-toolbar class="q-gutter-md justify-between">
       <!-- Logo -->
       <q-img src="~assets/logo.png" alt="LONGWApps Logo" style="max-width: 200px" />
@@ -132,5 +132,18 @@ const goTo = (url: string) => {
 <style scoped>
 .rounded-borders {
   border-radius: 8px;
+}
+.rounded-borders {
+  border-radius: 8px;
+}
+
+.custom-header {
+  padding-left: 16px; /* Left padding */
+  padding-right: 16px; /* Right padding */
+  padding-top: 12px; /* Top padding */
+  padding-bottom: 12px;
+  max-width: 1200px; /* Optional: keep navbar contained */
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
