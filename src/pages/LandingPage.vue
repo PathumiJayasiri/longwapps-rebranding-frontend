@@ -1,12 +1,12 @@
 <template>
-  <div class="landing-page q-pa-none">
+  <q-page class="landing-page q-pa-none">
     <LaunchAndScaling />
     <Features />
     <OurSuccess />
     <MeetOurTeam />
     <InnovativeTeam />
     <GetStarted />
-  </div>
+  </q-page>
 </template>
 
 <script lang="ts">
@@ -33,6 +33,6 @@ export default defineComponent({
 
 <style scoped>
 .landing-page {
-  min-height: 100vh; /* make full screen */
+  min-height: 100vh; /* ensures page content fills viewport */
 }
 </style>
