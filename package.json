@@ -15,7 +15,9 @@
     "postinstall": "quasar prepare"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.4",
+    "@fortawesome/free-brands-svg-icons": "^7.0.0",
+    "@fortawesome/vue-fontawesome": "^3.1.1",
+    "@quasar/extras": "^1.17.0",
     "quasar": "^2.16.0",
     "vue": "^3.5.18",
     "vue-router": "^4.0.12"

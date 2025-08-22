@@ -87,6 +87,8 @@ export default defineConfig((/* ctx */) => {
     framework: {
       config: {},
       iconSet: 'material-icons', // Ensure this is set
+      extras: ['material-icons', 'fontawesome-v5'],
+
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
 

@@ -1,6 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <q-header class="bg-white text-black shadow-sm q-mx-md q-my-md rounded-borders custom-header">
+  <q-header
+    class="q-pa-lg bg-white text-black shadow-sm q-mx-md q-my-md rounded-borders custom-header"
+  >
     <q-toolbar class="q-gutter-md justify-between">
       <!-- Logo -->
       <q-img src="~assets/logo.png" alt="LONGWApps Logo" style="max-width: 200px" />
@@ -138,12 +140,13 @@ const goTo = (url: string) => {
 }
 
 .custom-header {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 30px;
   padding-left: 10px; /* Left padding */
   padding-right: 10px; /* Right padding */
   padding-top: 12px; /* Top padding */
   padding-bottom: 12px;
-  max-width: 1200px; /* Optional: keep navbar contained */
-  margin-left: auto;
-  margin-right: auto;
+  /* max-width: 4000px;  */
 }
 </style>
