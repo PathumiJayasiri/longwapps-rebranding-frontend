@@ -117,6 +117,10 @@ export default defineComponent({
 .section-title {
   font-size: 28px;
   font-weight: bold;
-  color: #9c004d;
+  background: linear-gradient(90deg, #911370 0%, #f00074 78.37%);
+  background-clip: text; /* standard property for compatibility */
+  -webkit-background-clip: text; /* Safari/Chrome */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 </style>
