@@ -100,13 +100,19 @@
                 <q-btn flat round icon="email" class="q-mr-sm" />
                 <a href="mailto:info@longwapps.com" class="footer-link">info@longwapps.com</a>
               </li>
-              <!-- <li>
+              <li>
                 <q-btn flat round icon="facebook" class="q-mr-sm" />
                 <a class="footer-link" href="https://facebook.com/longwapps">LONGWApps (Pvt) Ltd</a>
               </li>
               <li class="flex items-center q-gutter-sm">
-                <q-btn flat round class="q-mr-sm" style="font-size: 20px; color: #0077b5">
-                  <q-icon class="fab fa-linkedin-in" />
+                <q-btn
+                  flat
+                  round
+                  class="q-mr-sm"
+                  style="font-size: 10px; color: #0077b5; padding-left: 10px"
+                >
+                  <!-- <q-icon class="fab fa-linkedin-in" /> -->
+                  <q-img src="~assets/icons/linkedin.png" />
                 </q-btn>
                 <a
                   href="https://linkedin.com/company/longwapps"
@@ -116,50 +122,62 @@
                 >
                   LONGWApps (Pvt) Ltd
                 </a>
-              </li> -->
+              </li>
             </ul>
           </div>
           <!-- Set 2 -->
           <div class="col-md-4">
             <ul class="list-none">
-              <li>
+              <!-- Phone -->
+              <li class="flex items-center">
                 <q-btn flat round icon="phone" class="q-mr-sm" />
                 <a class="footer-link" href="tel:+1(970)7160978">US: +1 (970) 716 0978</a>
               </li>
-              <!-- <div class="col-md-4">
-                <li class="flex items-start">
-                  <q-btn flat round icon="location_on" class="q-mr-sm" />
-                  <div>
-                    <span class="footer-link font-bold">LONGWApps LLC</span><br />
-                    <span class="footer-link"
-                      >16192 Coastal Hwy, Lewes, DE 19958, United States</span
-                    >
+
+              <!-- Address -->
+              <li class="flex items-start q-mt-sm">
+                <q-btn flat round icon="location_on" class="q-mr-sm" />
+                <div>
+                  <div class="flex items-center">
+                    <span class="footer-link font-bold">LONGWApps LLC</span>
                   </div>
-                </li>
-                <li class="flex items-start">
-                  <q-btn flat round icon="location_on" class="q-mr-sm" />
-                  <div>
-                    <span class="footer-link font-bold">LONGWApps (Pvt) Ltd</span><br />
-                    <span class="footer-link"
-                      >229/50, St.Joseph Street, Negombo, WP 11500, Sri Lanka</span
-                    >
+                  <div class="footer-link">
+                    16192 Coastal Hwy,<br />
+                    Lewes, DE 19958,<br />
+                    United States
                   </div>
-                </li>
-              </div>-->
+                </div>
+              </li>
             </ul>
           </div>
           <!-- Set 3 -->
           <div class="col-md-4">
             <ul class="list-none">
-              <li>
+              <!-- Phone -->
+              <li class="flex items-center">
                 <q-btn flat round icon="phone" class="q-mr-sm" />
                 <a class="footer-link" href="tel:+94(77)7632068">LK: +94 (77) 763 2068</a>
+              </li>
+
+              <!-- Address -->
+              <li class="flex items-start q-mt-sm">
+                <q-btn flat round icon="location_on" class="q-mr-sm" />
+                <div>
+                  <div class="flex items-center">
+                    <span class="footer-link font-bold">LONGWApps (Pvt) Ltd</span>
+                  </div>
+                  <div class="footer-link">
+                    229/50, St.Joseph Street,<br />
+                    Negombo, WP 11500,<br />
+                    Sri Lanka
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
         </div>
         <!--2nd row-->
-        <div class="row">
+        <!-- <div class="row">
           <li>
             <q-btn flat round icon="facebook" class="q-mr-sm" />
             <a class="footer-link" href="https://facebook.com/longwapps">LONGWApps (Pvt) Ltd</a>
@@ -172,9 +190,9 @@
               <span class="footer-link">16192 Coastal Hwy, Lewes, DE 19958, United States</span>
             </div>
           </li>
-        </div>
+        </div> -->
         <!--3rd row-->
-        <div class="row">
+        <!-- <div class="row">
           <li>
             <q-btn flat round icon="fab fa-linkedin-in" class="q-mr-sm" />
             <a class="footer-link" href="https://linkdin.com/longwapps">LONGWApps (Pvt) Ltd</a>
@@ -190,7 +208,7 @@
               >
             </div>
           </li>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- Social Media -->
@@ -235,7 +253,7 @@ export default defineComponent({
 .newsletter-heading {
   font-family: 'Headings/Subheading/Family', sans-serif;
   font-weight: 500;
-  font-style: normal; /* 'Medium' isn't a valid value — use normal or italic */
+  font-style: normal;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0;
