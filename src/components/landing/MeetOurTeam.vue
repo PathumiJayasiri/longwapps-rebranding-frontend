@@ -73,7 +73,7 @@ export default defineComponent({
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%; /* match image width */
+  width: 100%;
   text-align: center;
   z-index: 3;
 }
