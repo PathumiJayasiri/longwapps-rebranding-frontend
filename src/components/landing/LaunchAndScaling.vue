@@ -1,6 +1,6 @@
 <template>
   <section class="launch-scaling">
-    <!-- Background frame image-->
+    <!-- Background frame image -->
     <q-img
       :src="frameImage"
       alt="Frame Background"
@@ -11,22 +11,26 @@
 
     <!-- Overlay content -->
     <div class="overlay">
-      <q-btn unelevated rounded class="custom-btn">
-        <!-- Star image inside button -->
-        <div style="display: flex; align-items: center">
-          <img :src="starImage" alt="star" style="width: 20px; height: 20px; margin-right: 8px" />
-          <span>Build with AI</span>
-        </div>
-      </q-btn>
-
-      <h1 class="main-heading"><span class="highlight">Launch & Scale</span> with Us</h1>
+      <div class="main-heading">Engineering Your Next Digital Project</div>
 
       <!-- Description -->
       <p class="description">
-        We craft scalable, secure, and user-centric software that accelerates your business growth
-        and digital transformation.
+        From strategy to delivery, we build and scale projects with precision.
       </p>
-      <q-btn unelevated color="" class="hire-btn" label="Hire a Product Engineering Team" />
+      <div class="btn-set flex gap-5">
+        <q-btn unelevated rounded class="custom-btn">
+          <div style="display: flex; align-items: center">
+            <span>Start Your Project</span>
+            <img :src="rocketIcon" alt="rocket" />
+          </div>
+        </q-btn>
+        <q-btn unelevated rounded class="custom-btn">
+          <div style="display: flex; align-items: center">
+            <span>Explore Services</span>
+            <img :src="searchIcon" alt="search" />
+          </div>
+        </q-btn>
+      </div>
     </div>
     <div class="bottom-layer">
       <img :src="uniworLogo" alt="Uniwor Logo" />
@@ -40,8 +44,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import frameImage from 'src/assets/frames/frame1.png';
-import starIcon from 'src/assets/star_icon.png';
+import frameImage from 'src/assets/frames/frame1_1.png';
+import rocketIcon from 'src/assets/icons/rocket_icon.svg';
+import searchIcon from 'src/assets/icons/search_icon.svg';
 import uniworLogo from 'src/assets/uniwor_logo.png';
 import tryDiscsLogo from 'src/assets/tryDiscs_logo.png';
 import papelloLogo from 'src/assets/papello_logo.png';
@@ -52,10 +57,10 @@ export default defineComponent({
   name: 'LaunchAndScaling',
   setup() {
     const frameImageRef = ref(frameImage);
-    const starImage = ref(starIcon); // only one reference needed
     return {
       frameImage: frameImageRef,
-      starImage,
+      searchIcon,
+      rocketIcon,
       uniworLogo,
       tryDiscsLogo,
       papelloLogo,
@@ -75,11 +80,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background-image: url('src/assets/frames/frame1.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
 .background-img {
@@ -87,91 +88,157 @@ export default defineComponent({
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%; /* Ensure image fits viewport width */
   height: 100%;
   object-fit: cover;
   z-index: -1;
 }
+
 .main-heading {
-  font-size: 3rem;
-  font-weight: bold;
   margin: 0;
   line-height: 1.2;
-}
-
-.main-heading .highlight {
-  color: #ff0080;
+  position: relative;
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.5);
+  white-space: nowrap; /* Keep heading on one line for larger screens */
+  max-width: 90%; /* Prevent overflow */
 }
 
 .description {
-  font-size: 1.125rem;
-  color: #555;
-  max-width: 700px;
+  font-size: 1.25rem;
+  color: #f2effb;
   margin-bottom: 40px;
   margin-top: 25px;
+  font-weight: 800;
+  text-align: center;
+  position: relative;
+  line-height: 1.5;
+  max-width: 90%; /* Prevent overflow */
 }
+
 .overlay {
   display: flex;
-  flex-direction: column; /* stack children vertically */
-  align-items: center; /* center horizontally */
-  padding: 80px;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vw; /* Responsive padding */
   text-align: center;
   max-width: 800px;
   width: 100%;
 }
 
+.btn-set {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: center;
+}
+
+.btn-set span {
+  color: #000000;
+  white-space: nowrap;
+}
+
+.btn-set img {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
+
 .custom-btn {
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
+  font-weight: 800;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0%;
-  color: #5b32a1; /* text color */
-  width: 180px;
+  color: #5b32a1;
+  width: 220px;
   height: 54px;
   padding: 15px 25px;
   border-radius: 50px;
-  background-color: transparent; /* make inside transparent */
-  border: 2px solid #ffffff; /* white border */
-  box-shadow: 0 4px 10px rgba(231, 224, 224, 0.3); /* white shadow */
+  background-color: #f2effb;
   text-transform: none;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  transition: all 0.3s ease; /* smooth hover effect */
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .custom-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* slight hover effect */
+  background-color: rgba(255, 255, 255, 0.1);
 }
-.hire-btn {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 312px;
-  height: 54px;
-  padding: 15px 20px;
-  gap: 5px;
-  border-radius: 10px;
-  background-color: #7745cd;
-  opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .bottom-layer {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #ffffff; /* White background */
+  background-color: #ffffff;
   display: flex;
-  justify-content: space-between; /* Space between images */
-  align-items: center; /* Vertical alignment */
-  padding: 20px 40px; /* Padding for spacing */
-  z-index: 1; /* Ensure it’s above the background image */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5vw; /* Responsive padding */
+  z-index: 1;
+  flex-wrap: wrap; /* Allow logos to wrap on smaller screens */
+  gap: 10px; /* Add spacing between logos */
 }
+
 .bottom-layer img {
-  width: 80px; /* adjust size as needed */
+  max-width: 100px; /* Limit logo size for responsiveness */
   height: auto;
+  object-fit: contain;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2rem; /* Smaller font size on mobile */
+    line-height: 1.3;
+    white-space: normal; /* Allow wrapping on mobile */
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .overlay {
+    padding: 3vw;
+  }
+
+  .custom-btn {
+    width: 180px; /* Smaller buttons on mobile */
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .bottom-layer {
+    padding: 10px 3vw;
+    justify-content: center; /* Center logos on mobile */
+  }
+
+  .bottom-layer img {
+    max-width: 80px; /* Smaller logos on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .custom-btn {
+    width: 160px;
+    font-size: 12px;
+  }
 }
 </style>
