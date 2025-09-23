@@ -91,7 +91,7 @@
           </q-expansion-item>
 
           <!-- Contact -->
-          <q-item clickable v-close-popup @click="goTo('/contact')">
+          <q-item clickable v-close-popup @click="goTo('/contact-us')">
             <q-item-section>Contact Us</q-item-section>
           </q-item>
         </q-list>
@@ -103,7 +103,7 @@
         label="Contact Us"
         :style="{ color: '#5B32A1', fontWeight: 'bold' }"
         class="rounded-borders q-px-md q-py-sm desktop-contact"
-        @click="goTo('/contact')"
+        @click="goTo('/contact-us')"
       >
         <q-img
           src="~assets/icons/message_icon.svg"
@@ -117,7 +117,9 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 interface Link {
   name: string;
   url: string;
@@ -199,7 +201,7 @@ const onMenuHide = (name: string) => {
 };
 
 const goTo = (url: string) => {
-  window.location.href = url;
+  void router.push(url); // Proper SPA navigation
 };
 </script>
 
