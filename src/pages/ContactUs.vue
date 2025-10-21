@@ -24,24 +24,26 @@
             <!-- Name & Contact -->
             <div class="row q-col-gutter-md">
               <div class="col-12 col-md-6">
+                <label>Name</label>
                 <q-input
                   filled
                   v-model="form.name"
-                  label="Name"
                   dense
                   required
-                  label-color="white"
+                  placeholder="Enter your name"
+                  class="white-placeholder"
                 />
               </div>
               <div class="col-12 col-md-6">
+                <label>Contact Number</label>
                 <q-input
                   filled
                   v-model="form.contact"
-                  label="Contact Number"
                   dense
                   required
                   :prefix="countryCode"
-                  label-color="white"
+                  placeholder="Enter your contact number"
+                  class="white-placeholder"
                 >
                   <template v-slot:prepend>
                     <q-img
@@ -55,41 +57,48 @@
             </div>
 
             <!-- Email -->
-            <q-input
-              filled
-              v-model="form.email"
-              label="Email Address"
-              class="q-mt-md"
-              dense
-              required
-              type="email"
-              label-color="white"
-            />
+            <div>
+              <label>Email Address</label>
+              <q-input
+                filled
+                v-model="form.email"
+                class="white-placeholder q-mt-md"
+                dense
+                required
+                type="email"
+                placeholder="Enter your email address"
+              />
+            </div>
 
             <!-- Idea -->
-            <q-input
-              filled
-              v-model="form.idea"
-              label="Tell us about your Idea"
-              type="textarea"
-              class="q-mt-md"
-              dense
-              required
-              label-color="white"
-            />
-
+            <div>
+              <label>Tell us about your Idea</label>
+              <q-input
+                filled
+                v-model="form.idea"
+                type="textarea"
+                class="q-mt-md white-placeholder"
+                dense
+                required
+                placeholder="Describe your idea"
+              />
+            </div>
             <!-- Product Status -->
-            <q-select
-              filled
-              v-model="form.status"
-              :options="projectTypes"
-              label="Product Status"
-              class="q-mt-md"
-              dense
-              required
-              label-color="white"
-            />
-
+            <div>
+              <label>Product Status</label>
+              <q-select
+                filled
+                v-model="form.status"
+                :options="projectTypes"
+                placeholder="Select a project type"
+                class="white-placeholder q-mt-md"
+                dense
+                required
+                option-label="label"
+                emit-value
+                map-options
+              />
+            </div>
             <!-- Plans -->
             <div class="row q-col-gutter-md q-mt-md">
               <div v-for="plan in plans" :key="plan.name" class="col-6 col-md-3 q-mb-sm">
@@ -110,26 +119,30 @@
             <!-- Date & Time -->
             <div class="row q-col-gutter-md q-mt-md">
               <div class="col-12 col-md-6">
-                <q-input
-                  filled
-                  v-model="form.date"
-                  label="Select Date"
-                  mask="DD/MM/YYYY"
-                  dense
-                  required
-                  label-color="white"
-                >
+                <label>Select Date</label>
+                <q-input filled v-model="form.date" dense required placeholder="Select a date">
                   <template v-slot:append>
-                    <q-icon name="event" class="cursor-pointer" />
+                    <q-icon name="event" class="cursor-pointer">
+                      <q-popup-proxy transition-show="scale" transition-hide="scale">
+                        <q-date
+                          v-model="form.date"
+                          mask="DD/MM/YYYY"
+                          color="primary"
+                          text-color="white"
+                          @update:model-value="(val) => (form.date = val)"
+                        />
+                      </q-popup-proxy>
+                    </q-icon>
                   </template>
                 </q-input>
               </div>
               <div class="col-12 col-md-6">
+                <label>Select Time</label>
+
                 <q-select
                   filled
                   v-model="form.time"
                   :options="timeOptions"
-                  label="Select Time"
                   dense
                   required
                   label-color="white"
@@ -156,7 +169,6 @@
 
 <script lang="ts" setup>
 import frameImage from 'src/assets/frames/frame-contactus.png';
-
 import { ref } from 'vue';
 import { Notify } from 'quasar';
 
@@ -166,14 +178,20 @@ const form = ref({
   name: '',
   contact: '02100000005',
   email: '',
-  idea: 'place holder',
-  status: '',
+  idea: '',
+  status: 'Select a project type',
   plan: 'Silver',
   date: '',
   time: '09:00 AM',
 });
 
-const projectTypes = ['Mobile App', 'Web App', 'E-Commerce', 'SaaS', 'Other'];
+const projectTypes = [
+  { label: 'Mobile App', value: 'Mobile App' },
+  { label: 'Web App', value: 'Web App' },
+  { label: 'E-Commerce', value: 'E-Commerce' },
+  { label: 'SaaS', value: 'SaaS' },
+  { label: 'Other', value: 'Other' },
+];
 
 const plans = [
   {
@@ -262,18 +280,31 @@ const submitForm = () => {
   border: 2px solid #2979ff;
 }
 
+.q-input ::v-deep(input),
+.q-input ::v-deep(textarea),
+.q-input ::v-deep(.q-field__native),
+.q-select ::v-deep(.q-field__native),
+.q-select ::v-deep(.q-field__input),
+.q-icon {
+  color: white !important;
+}
+
 .q-input,
 .q-select {
   background: #2a1f3e;
 }
 
-.q-input input,
-.q-select input {
-  color: white;
+.q-field__control {
+  border: none;
 }
 
-.q-input .q-field__control,
-.q-select .q-field__control {
-  border: none;
+.white-placeholder ::placeholder {
+  color: #ffffff;
+  font-family: 'Headings/Normal/Family', sans-serif;
+  font-weight: 200;
+  font-style: medium;
+  font-size: var(--q-headings-normal-size, 16px);
+  line-height: 28px;
+  letter-spacing: 0%;
 }
 </style>
